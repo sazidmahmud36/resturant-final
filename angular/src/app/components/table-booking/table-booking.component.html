@@ -1,0 +1,178 @@
+<div class="my-5">
+    
+
+    <input type="radio" class="btn-check me-3" name="templete" id="option6" autocomplete="off" value="Booking"
+      [(ngModel)]="templete">
+    <label class="btn btn-outline-danger me-3" for="option6">New Booking</label>
+
+    <input type="radio" class="btn-check me-3" name="templete" id="option5" autocomplete="off" value="bookingList"
+      [(ngModel)]="templete">
+    <label class="btn btn-outline-danger me-3" for="option5">Booking List</label>
+
+    <!-- <input type="radio" class="btn-check me-3" name="templete" id="option8" autocomplete="off" value="order"
+      [(ngModel)]="templete">
+    <label class="btn btn-outline-success me-3" for="option8">Food Order</label> -->
+  </div>
+  <hr>
+  <div>
+    <ng-template [ngIf]="templete=='bookingList'">
+      <div class="row">
+        <div class="mb-3 me-3 col">
+          <input type="date" class="form-control" id="date" aria-describedby="emailHelp" name="date" [(ngModel)]="date">
+        </div>
+        <div class="col">
+          <select class="form-select" aria-label="Default select example" name="bookingStatus" [(ngModel)]="bookingStatus">
+            <option selected>Select Booking Status</option>
+            <option value="booked">Booked</option>
+            <option value="check out">Check Out</option>
+           
+          </select>
+        </div>
+        <div class="col">
+          <button type="submit" class="btn btn-danger col" (click)="findBookingById()">Search</button>
+        </div>
+        
+      </div>
+      <!-- {{booking | json}} -->
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Booking Id</th>
+            <th scope="col">Date</th>
+            <th scope="col">Table No</th>
+            <th scope="col">Customer Id</th>
+            <th scope="col">Booking Time</th>
+            <!-- <th scope="col">End Time</th> -->
+            <th scope="col">Booking Status</th>
+            <th>Action</th>
+
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let i of booking">
+            <th scope="row"> {{i.bookingId}} </th>
+            <td>{{i.date}}</td>
+            <td>{{i.tableNo}}</td>
+            <td>{{i.customerId}}</td>
+            <td>{{i.bookingTime}}</td>
+            <!-- <td>{{i.endTime}}</td> -->
+            <td>{{i.bookingStatus}}</td>
+            <td>
+              <button type="submit" class="btn btn-outline-danger col me-3" (click)="getOrder(i.bookingId)">Order</button>
+              <button type="submit" class="btn btn-outline-danger col" (click)="procideToPayment(i.bookingId)">Payment</button>
+            </td>
+
+          </tr>
+        </tbody>
+      </table>
+    </ng-template>
+
+<ng-template [ngIf]="templete=='Booking'">
+    <div>
+      <div class="row">
+        <div class="row">
+          <div class="col">
+            <form (ngSubmit)="findFreeTable()">
+              <div class="row">
+                <div class="mb-3 me-3 col-3">
+                  <select class="form-select" aria-label="Default select example" name="time" [(ngModel)]="bookingTime">
+                    <option selected>Select Time</option>
+                    <option value="breakfast">Breakfast</option>
+                    <option value="lunch">Lunch</option>
+                    <option value="dinner">Dinner</option>
+                  </select>
+                </div>
+                <div class="col">
+                  <!-- <input type="date" id="birthday" name="birthday"> -->
+                  <div class="mb-3 me-3 col ">
+
+                    <input type="date" class="form-control" id="date" aria-describedby="emailHelp" name="date" [(ngModel)]="date">
+                  </div>
+                </div>
+
+                <button type="submit" class="btn btn-outline-danger col-2">Search</button>
+              </div>
+            </form>
+          </div>
+          <div class="col-3">
+
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- <ng-template [ngif] = "tableTemplate == 'table'"> -->
+    <ng-template [ngIf]="tableTemplate=='table'">
+      <table class="table table-striped">
+        <thead>
+
+          <!-- tableNumber:any;
+          tableSit:any;
+          tablePosition:any;
+
+          fph:any;
+          status:any; -->
+          <tr>
+            <th scope="col">Table Number</th>
+            <th scope="col">Sit</th>
+            <th scope="col">Position</th>
+            <th scope="col">Service Bill</th>
+            <th scope="col">Status</th>
+            <th scope="col">Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- <a type="button"> -->
+          <tr *ngFor="let i of allTableInfo">
+            <th scope="row">{{i.tableNumber}}</th>
+            <!-- <td>{{i.tableNumber}}</td> -->
+            <td>{{i.tableSit}}</td>
+            <td>{{i.tablePosition}}</td>
+            <td>{{i.fph}}</td>
+            <td>{{i.status}}</td>
+            <td><button type="submit" class="btn btn-outline-danger col" (click)="processBooking(i.tableNumber, i.fph)">Book</button>
+            </td>
+          </tr>
+          <!-- </a> -->
+        </tbody>
+      </table>
+      {{customerId}}
+      {{billId}}
+      <!-- {{allTableInfo | json}} -->
+    </ng-template>
+
+    <ng-template [ngIf]="tableTemplate=='bTable'">
+      <div class="row">
+        <div class="col">
+          <form (ngSubmit)="bookTable()">
+            <div class="row mt-5">
+              <div class="mb-3 me-3 col">
+                <input type="text" class="form-control" placeholder="Customer Name" id="exampleInputEmail1"
+                   name="customerName" [(ngModel)]="customerName">
+              </div>
+    
+              <div class="mb-3 me-3 col">
+                <input type="text" class="form-control" placeholder="Phone Number" id="exampleInputEmail1"
+                name="customerPhone" [(ngModel)]="customerPhone">
+              </div>
+              <div class="col">
+                <!-- <input type="date" id="birthday" name="birthday"> -->
+    
+              </div>
+    
+              <!-- <button type="submit" class="btn btn-outline-primary col me-3">Order Food</button> -->
+              <button type="submit" class="btn btn-outline-danger col ms-3" >Confirm</button>
+            </div>
+          </form>
+        </div>
+        <div class="col-3">
+
+        </div>
+      </div>
+
+    </ng-template>
+    <!-- {{sit | json}} -->
+
+    <!-- {{time}} -->
+    <!-- {{allfreeTable | json}} -->
+  </ng-template>
+

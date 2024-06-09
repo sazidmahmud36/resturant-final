@@ -1,0 +1,86 @@
+<a (click)="print()"><img src="../../../assets/images/pngtree-printer-icon-design-template-vector-illustration-png-image_710447-removebg-preview.png" alt="" height="50px" width="50px" class="m-3" ></a>
+<div class="row container">
+    <div class="row m-5">
+      <div class="col-8">
+        <table class="table table-striped">
+          <tr>
+            <th> Table Number </th>
+            <th>Food Id</th>
+            <th>Price</th>
+            
+            <th>Quantity</th>
+            <th>Total Price</th>
+  
+          </tr>
+          <tr *ngFor="let i of bills">
+            <td>{{i.tableNumber}}</td>
+            <td>{{i.foodId}}</td>
+            <td>{{i.amount}}</td>
+            
+            <td>{{i.orderQuantity}}</td>
+            <td>{{i.totalprice}}</td>
+          </tr>
+        </table>
+  
+      </div>
+  
+      <div class="col-sm-4">
+        <div class="col">
+          <!-- <div class="row mb-3">
+            <div class="col">
+              <th>Transection Id: </th>
+            </div>
+            <div class="col">
+              <td> {{transectionId}} </td>
+            </div>
+          </div> -->
+          <div class="row mb-3">
+            <div class="col">
+              <th>Payment Type: </th>
+            </div>
+            <div class="col">
+              <td> {{paymentType | titlecase}} </td>
+            </div>
+          </div>
+          <div class="row mb-3">
+            <div class="col">
+              <th>Total Bill: </th>
+            </div>
+            <div class="col">
+              <td> {{grossSale}} </td>
+            </div>
+          </div>
+          <div class="row mb-3">
+            <div class="col">
+              <th>Payment Status: </th>
+            </div>
+            <div class="col">
+              <td> {{paymentStatus|titlecase}} </td>
+            </div>
+          </div>
+          <div class="row mb-3">
+            <div class="col">
+              <th>Pay Ammount: </th>
+            </div>
+            <div class="col">
+              <td>
+                <div class="mb-3">
+                  <!-- <input type="number" class="form-control " id="payAmmount" 
+                name="payAmmount" [(ngModel)]="payAmmount"> -->
+                {{payAmmount}}
+                </div>
+              </td>
+            </div>
+          </div>
+          <div class="row mb-3">
+            <div class="col">
+              <th>Return: </th>
+            </div>
+            <div class="col">
+              <td> {{return}} </td>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

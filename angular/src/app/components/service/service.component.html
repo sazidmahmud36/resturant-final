@@ -1,0 +1,74 @@
+<div>
+    <div>
+        <div class="my-5">
+            <input type="radio" class="btn-check me-3" name="templete" id="option5" autocomplete="off" value="createTable" [(ngModel)]="templete">
+            <label class="btn btn-outline-danger me-3" for="option5">Create Table</label>
+
+            <input type="radio" class="btn-check me-3" name="templete" id="option6" autocomplete="off" value="addFood" [(ngModel)]="templete">
+            <label class="btn btn-outline-danger me-3" for="option6">Add Food</label>
+
+            <!-- <input type="radio" class="btn-check me-3" name="templete" id="option8" autocomplete="off" value="Radio" [(ngModel)]="templete">
+            <label class="btn btn-outline-success me-3" for="option8">Radio</label> -->
+        </div>
+        <div>
+            <ng-template [ngIf]="templete=='createTable'">
+                <div>
+                    <div class="row">
+                        <div class="col-7  bg-light p-5 rounded">
+                            <form (ngSubmit)="createNewTable()">
+                                <div class="row">
+                                    <div class="mb-3">
+                                        <label for="tableNumber" class="form-label">Table No</label>
+                                        <input type="text" class="form-control" id="tableNumber" name="tableNumber" [(ngModel)]="tableNumber">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="tableSit" class="form-label">Sit</label>
+                                        <input type="text" class="form-control" id="tableSit" name="tableSit" [(ngModel)]="tableSit">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="tablePosition" class="form-label">Position</label>
+                                        <input type="text" class="form-control" id="tablePosition" name="tablePosition" [(ngModel)]="tablePosition">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="FpH" class="form-label">Fare per Hour</label>
+                                        <input type="text" class="form-control" id="FpH" name="fph" [(ngModel)]="fph">
+                                    </div>
+                                </div>
+                                
+                                <button type="submit" class="btn btn-danger">Submit</button>
+                              </form>
+                        </div>
+                        <div class="col-3">
+
+                        </div>
+                    </div>
+                </div>
+            </ng-template>
+            <ng-template [ngIf]="templete=='addFood'">
+                <div>
+                    <div class="row ">
+                        <div class="col-7 bg-light p-5 rounded">
+                            <form >
+                                <div class="row">
+                                    <div class="mb-3">
+                                        <label for="foodName" class="form-label">Food Menu Name</label>
+                                        <input type="text" class="form-control" id="foodName" name="foodName" [(ngModel)]="foodName">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="foodPrice" class="form-label">Price per Quantity</label>
+                                        <input type="text" class="form-control" id="foodPrice" name="foodPrice" [(ngModel)]="foodPrice">
+                                    </div>
+                                </div>
+                                
+                                <button type="submit" class="btn btn-danger" (click)="addFood()">Submit</button>
+                              </form>
+                        </div>
+                        <div class="col-3">
+
+                        </div>
+                    </div>
+                </div>
+            </ng-template>
+        </div>
+    </div>
+</div>

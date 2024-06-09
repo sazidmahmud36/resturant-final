@@ -1,0 +1,23 @@
+<div class="row m-5">
+
+    <h1 class="display-4 text-center">Menu</h1>
+    <table class="table table-success table-striped">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Food Name</th>
+            <th scope="col">Price</th>
+           
+          </tr>
+        </thead>
+        <tbody *ngFor="let i of allFood">
+          <tr>
+            <th scope="row">{{i.foodId}}</th>
+            <td>{{i.foodName}}</td>
+            <td>{{i.foodPrice}}</td>
+            
+          </tr>
+          
+        </tbody>
+      </table>
+</div>

@@ -1,0 +1,178 @@
+<div>
+  <div>
+    <div class="mt-3">
+
+      <input type="radio" class="btn-check me-3" name="templete" id="option8" autocomplete="off" value="order"
+        [(ngModel)]="templete">
+      <label class="btn btn-outline-danger me-3" for="option8">New Order</label>
+      <hr>
+    </div>
+    <div>
+      <ng-template [ngIf]="templete=='bookingList'">
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th scope="col">Booking Id</th>
+              <th scope="col">Date</th>
+              <th scope="col">Table No</th>
+              <th scope="col">Customer Id</th>
+              <th scope="col">Start Time</th>
+              <th scope="col">End Time</th>
+              <th scope="col">Booking Status</th>
+
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let i of booking">
+              <th scope="row"> {{i.bookingId}} </th>
+              <td>{{i.date}}</td>
+              <td>{{i.tableNo}}</td>
+              <td>{{i.customerId}}</td>
+              <td>{{i.startTime}}</td>
+              <td>{{i.endTime}}</td>
+              <td>{{i.bookingStatus}}</td>
+
+            </tr>
+          </tbody>
+        </table>
+        
+      </ng-template>
+     
+
+
+
+
+      <ng-template [ngIf]="templete=='order'">
+
+
+      <!-- ============= Search ================== -->
+
+      
+<div class="row">
+  <div class="col-8">
+        <div class="row mt-4">
+          <div class="col search">
+            <!-- <h5>Search Your Product</h5> -->
+            <form (ngSubmit)="foodSearch()">
+              <div class="row">
+                <div class="mb-4 col-6">
+                  <!-- <label for="foodId" class="form-label">Search By Food Id: </label> -->
+                  <input type="number" class="form-control" placeholder="Type Food Id" id="foodId" name="foodId"
+                    [(ngModel)]="foodId">
+                </div>
+                <div class="col">
+                  <button type="submit" class="btn btn-danger">Search</button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+        <div class="col">
+          <table class="table table-striped">
+            <tr>
+              <th> Food Id </th>
+              <th>Food Name</th>
+              <th>Food Price</th>
+              <!-- <th>Colors</th> -->
+              <!-- <th>Stock</th> -->
+              <th>Order</th>
+              <th>Action</th>
+            </tr>
+            <tr *ngFor="let i of food">
+              <td>{{i.foodId}}</td>
+              <td>{{i.foodName | titlecase}}</td>
+              <td>{{i.foodPrice}}</td>
+              <!-- <td>{{i.colors}}</td>
+              <td>{{i.stock}}</td> -->
+              <td>
+                <div class="mb-3">
+                  <input type="number" class="form-control " id="exampleInputEmail1" style="width: 3.5rem;"
+                    name="orderQuantity" [(ngModel)]="orderQuantity">
+                </div>
+              </td>
+              <td>
+                
+                <a type="button" class="btn btn-danger" style="text-decoration: none;" (click)="foodAddToArray(i.foodId,i.foodName,i.foodPrice)">Add</a>
+                <!-- <i class="bi bi-check-lg" ></i> -->
+                <!-- <i class="bi bi-x-lg"></i> -->
+              </td>
+            </tr>
+          </table>
+        </div>
+        <div class="row">
+          <!-- <button type="submit" class="btn btn-outline-primary col-sm-3 m-3" (click)="confirmOrder()">Order Confirm</button> -->
+          <button type="submit" class="btn btn-outline-danger col-sm-3 m-3" (click)="calculate()">Calculate</button>
+          <button type="submit" class="btn btn-outline-danger col-sm-3 m-3" (click)="procideToPay()">Proceed to Pay</button>
+         
+        </div>
+
+        
+
+        <table class="table table-striped">
+          <tr>
+            <th> Table Number </th>
+            <th>Food Name</th>
+            <th>Price</th>
+            <!-- <th>Colors</th> -->
+            <th>Quantity</th>
+            <th>Total Price</th>
+  
+          </tr>
+          <tr *ngFor="let i of showFoods">
+            <td>{{i.tableNumber}}</td>
+            <td>{{i.foodName}}</td>
+            <td>{{i.amount}}</td>
+            <!-- <td>{{i.quantity}}</td> -->
+            <td>{{i.quantity}}</td>
+            <td>{{i.total}}</td>
+          </tr>
+        </table>
+        <h3> <span >Total Bill : {{totalBill}}</span></h3>
+      </div>
+
+      <div class="col-3">
+
+        <table class="table table-danger table-striped">
+          <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Name</th>
+              <th scope="col">Price</th>
+              
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let i of getAllfood">
+              <td>{{i.foodId}}</td>
+              <td>{{i.foodName}}</td>
+              <td>{{i.foodPrice}}</td>
+            </tr>
+            
+          </tbody>
+        </table>
+
+        <!-- <table class="table table-striped">
+          <tr>
+            <th>#</th>
+            <th>Food Name</th>
+            <th>Price</th>
+  
+          </tr>
+          <tr *ngFor="let i of getAllfood">
+            <td>{{i.foodId}}</td>
+            <td>{{i.foodName}}</td>
+            <td>{{i.foodPrice}}</td>
+          </tr>
+        </table> -->
+
+        <!-- {{getAllfood | json}} -->
+      </div>
+      </div>
+        
+      </ng-template>
+    </div>
+  </div>
+</div>
+
+
+<!-- {{allTableInfo | json}} -->

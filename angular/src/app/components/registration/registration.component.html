@@ -1,0 +1,33 @@
+<div class="container bg-light bg-gradient rounded pb-5 pt-5">
+    <div class="row">
+        <div class="col-9">
+          <h1>Register an Admin</h1>
+          <form (ngSubmit)="reg()">
+            <div class="mb-3">
+              <label for="emp_id" class="form-label">Employee Id</label>
+              <input type="text" class="form-control" id="emp_id" name="admin_id" [(ngModel)]="admin_id">
+            </div>
+    
+            <div class="mb-3">
+                <label for="emp_name" class="form-label">Employee Name</label>
+                <input type="text" class="form-control" id="emp_name" name="admin_name" [(ngModel)]="admin_name">
+              </div>
+    
+              <div class="mb-3">
+                <label for="emp_email" class="form-label">Employee Email</label>
+                <input type="text" class="form-control" id="emp_email" name="admin_email" [(ngModel)]="admin_email">
+              </div>
+      
+              <div class="mb-3">
+                  <label for="emp_password" class="form-label">Employee Password</label>
+                  <input type="text" class="form-control" id="emp_password" name="admin_pass" [(ngModel)]="admin_pass">
+                </div>
+    
+            <button type="submit" class="btn btn-danger">Register</button>
+          </form>
+          <div class="col-3">
+           
+          </div>
+        </div>
+    </div>
+  </div>

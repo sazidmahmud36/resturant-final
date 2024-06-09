@@ -1,0 +1,28 @@
+<app-header></app-header>
+
+
+
+<div class="container">
+    <div class="row align-items-center">
+      <div class="col">
+        <img src="https://img.freepik.com/free-photo/computer-security-with-login-password-padlock_107791-16191.jpg?size=626&ext=jpg" alt="">
+      </div>
+      <div class="col">
+        <div class="container">
+          <form (ngSubmit)="login()">
+            <div class="mb-3">
+              <label for="admin_id" class="form-label">Id</label>
+              <input type="text" class="form-control" id="admin_id" name="admin_id" [(ngModel)]="admin_id">
+            </div>
+            <div class="mb-3">
+              <label for="admin_pass" class="form-label">Password</label>
+              <input type="password" class="form-control" id="admin_pass" name="admin_pass" [(ngModel)]="admin_pass">
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+          </form>
+        </div>
+      </div>
+    </div>
+    <app-footer></app-footer>
+
+    <!-- {{loginUser|json}} -->

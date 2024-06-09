@@ -1,0 +1,27 @@
+<div class="row m-5">
+
+    <h1 class="display-4 text-center">Available Table</h1>
+    <table class="table table-success table-striped">
+        <thead>
+          <tr>
+            <th scope="col">Table Number</th>
+            <th scope="col">Sit</th>
+            <th scope="col">Position</th>
+            <th scope="col">Fare Per Hour</th>
+            <th scope="col">Status</th>
+          </tr>
+        </thead>
+        <tbody *ngFor="let i of allAvailableTables">
+          <tr>
+            <th scope="row">{{i.tableNumber}}</th>
+            <td>{{i.tableSit}}</td>
+            <td>{{i.tablePosition}}</td>
+            <td>{{i.fph}}</td>
+            <td>{{i.status | titlecase}}</td>
+          </tr>
+          
+        </tbody>
+      </table>
+</div>
+
+<!-- {{allAvailableTables | json}} -->

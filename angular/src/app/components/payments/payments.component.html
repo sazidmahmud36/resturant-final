@@ -1,0 +1,140 @@
+<!-- {{bill|json}} <br>
+{{bills|json}} <br>
+Booking data: {{bookingData|json}} -->
+<div class="mt-5 mb-3">
+  <div class="col-sm-2">
+    <button type="submit" class="btn btn-outline-danger col me-3" (click)="showBill()">Show Bill</button>
+
+  </div>
+</div>
+<div class="row">
+  <!-- <div class="dropdown col">
+    <select class="form-select" aria-label="Default select example" #dd (change)="addTableNo(dd.value)">
+      <option selected>Select Table</option>
+      <option *ngFor="let i of allTableInfo;let z=index;" [value]="z">{{i.tableNumber}}</option>
+
+    </select>
+
+
+  </div>
+  <div class="col">
+    <input type="text" class="form-control" placeholder="Customer Phone Number" id="barcode" name="barcode"
+      [(ngModel)]="customerPhone">
+  </div> -->
+  <div class="row">
+    <div class="col-8">
+      <table class="table table-striped">
+        <tr>
+          <th> Table Number </th>
+          <th>Food Id</th>
+          <th>Price</th>
+          <!-- <th>Colors</th> -->
+          <th>Quantity</th>
+          <th>Total Price</th>
+
+        </tr>
+        <tr *ngFor="let i of bills">
+          <td>{{i.tableNumber}}</td>
+          <td>{{i.foodId}}</td>
+          <td>{{i.amount}}</td>
+          <!-- <td>{{i.quantity}}</td> -->
+          <td>{{i.orderQuantity}}</td>
+          <td>{{i.totalprice}}</td>
+        </tr>
+      </table>
+
+    </div>
+
+    <div class="col-sm-4 bg-light p-3 rounded">
+      <div class="col">
+        <!-- <div class="row mb-3">
+          <div class="col">
+            <th>Transection Id: </th>
+          </div>
+          <div class="col">
+            <td> {{transectionId}} </td>
+          </div>
+        </div> -->
+        <div class="row mb-3">
+          <div class="col">
+            <th>Payment Type: </th>
+          </div>
+          <div class="col">
+            <td> {{paymentType}} </td>
+          </div>
+        </div>
+        <div class="row mb-3">
+          <div class="col">
+            <th>Total Bill: </th>
+          </div>
+          <div class="col">
+            <td> {{grossSale}} </td>
+          </div>
+        </div>
+        <div class="row mb-3">
+          <div class="col">
+            <th>Payment Status: </th>
+          </div>
+          <div class="col">
+            <td> {{paymentStatus|titlecase}} </td>
+          </div>
+        </div>
+        <!-- <div class="row mb-3">
+          <div class="col">
+            <th>Discount: </th>
+          </div>
+          <div class="col">
+            <td>
+              <div class="mb-3">
+                <input type="number" class="form-control " id="Discount" 
+              name="Discount" [(ngModel)]="Discount">
+              </div>
+            </td>
+          </div>
+        </div>
+        <div class="row mb-3">
+          <div class="col">
+            <th>Net Sale:</th>
+          </div>
+          <div class="col">
+            <td> {{netSale}} </td>
+          </div>
+        </div> -->
+        <!-- <div class="row">
+        <div class="col">
+          <th>Vat</th>
+        </div>
+        <div class="col">
+          <td></td>
+        </div>
+      </div> -->
+        <div class="row mb-3">
+          <div class="col">
+            <th>Pay Ammount: </th>
+          </div>
+          <div class="col">
+            <td>
+              <div class="mb-3">
+                <input type="number" class="form-control " id="payAmmount" 
+              name="payAmmount" [(ngModel)]="payAmmount">
+              </div>
+            </td>
+          </div>
+        </div>
+        <div class="row mb-3">
+          <div class="col">
+            <th>Return: </th>
+          </div>
+          <div class="col">
+            <td> {{return}} </td>
+          </div>
+        </div>
+        <div class="roe mb-3">
+          <button type="submit" class="btn btn-danger col me-3" (click)="calculate()">Calculate</button>
+          <button type="submit" class="btn btn-danger col" (click)="paymentConfirm()">Pay</button>
+         
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

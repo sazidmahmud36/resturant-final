@@ -1,0 +1,235 @@
+<app-header></app-header>
+<app-hero></app-hero>
+<div class="container">
+    <h5 class="mt-5 text-danger text-center">OUR CHEFS</h5>
+    <h3 class="mt-5 text-center">We offer the best ingredients for you</h3>
+
+
+    <div class="row mt-5 mb-5">
+        <div class="col-lg-4 p-4 border">
+            <img src="../../../assets/images/chefs-01.jpeg" class="rounded-circle mx-auto d-block m-4" alt=""
+                height="200px" width="200px">
+
+            <h2 class="text-center text-danger">Randy Walker</h2>
+            <p class="text-center">Pastry Chef</p>
+            <!-- <p><a class="btn btn-secondary" href="#">View details &raquo;</a></p> -->
+        </div><!-- /.col-lg-4 -->
+        <div class="col-lg-4 p-4 border">
+            <img src="../../../assets/images/chefs-02.jpeg" class="rounded-circle mx-auto d-block m-4" alt=""
+                height="200px" width="200px">
+
+
+            <h2 class="text-center text-danger">David Martin</h2>
+            <p class="text-center">Cookie Chef</p>
+        </div><!-- /.col-lg-4 -->
+        <div class="col-lg-4 p-4 border">
+            <img src="../../../assets/images/chefs-03.jpeg" class="rounded-circle mx-auto d-block m-4" alt=""
+                height="200px" width="200px">
+
+
+            <h2 class="text-center text-danger">Peter Perkson</h2>
+            <p class="text-center">Pancake Chef</p>
+        </div><!-- /.col-lg-4 -->
+    </div><!-- /.row -->
+</div>
+
+
+<!-- food menu -->
+<div class="container">
+    <div class="row">
+        <div class="col-2"></div>
+        <div class="col">
+            <table class="table table-success table-striped">
+                <thead>
+                  <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Food Name</th>
+                    <th scope="col">Price</th>
+                    <!-- <th scope="col">Handle</th> -->
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let i of allFood">
+                    <th scope="row">{{i.foodId}}</th>
+                    <td>{{i.foodName}}</td>
+                    <td>{{i.foodPrice}}</td>
+                    <!-- <td>@mdo</td> -->
+                  </tr>
+                  
+                </tbody>
+              </table>
+        </div>
+        <div class="col-2"></div>
+    </div>
+    </div>
+
+<!-- <div class="d-flex justify-content-center align-items-center bg-light" style="min-width: 100vh;
+min-height: 100vh;">
+    <div class="card p-3 shadow m-5" style="max-width: 600px;">
+        <h5 class="text-center p-3 text-danger">KLASSY WEEK</h5>
+        <h2 class="text-center p-3 m-3">This Week’s Special Meal Offers</h2>
+        <nav>
+            <div class="nav nav-tabs mb-3" id="nav-tab" role="tablist">
+                <button class="nav-link active" id="nav-home-tab" data-bs-toggle="tab" data-bs-target="#nav-home"
+                    type="button" role="tab" aria-controls="nav-home" aria-selected="true">Breakfast</button>
+                <button class="nav-link" id="nav-profile-tab" data-bs-toggle="tab" data-bs-target="#nav-profile"
+                    type="button" role="tab" aria-controls="nav-profile" aria-selected="false">Lunch</button>
+                <button class="nav-link" id="nav-contact-tab" data-bs-toggle="tab" data-bs-target="#nav-contact"
+                    type="button" role="tab" aria-controls="nav-contact" aria-selected="false">Dinner</button>
+            </div>
+        </nav>
+        <div class="tab-content p-3 border bg-light" id="nav-tabContent">
+            <div class="tab-pane fade active show" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+
+                <div class="row mt-2">
+                    <div class="col-3">
+                        <img src="../../../assets/images/tab-item-01.png" class="rounded" alt="">
+                    </div>
+                    <div class="col-7">
+                        <h4 class="text-danger">Fresh Chicken Salad</h4>
+                        <p>Lorem ipsum dolor sit amet, consectetur koit adipiscing elit, sed do.</p>
+                    </div>
+                    <div class="col-2 bg-danger rounded d-flex align-items-center justify-content-center">
+                        <p class="text-light">130</p>
+                    </div>
+                </div>
+                <div class="row mt-2">
+                    <div class="col-3">
+                        <img src="../../../assets/images/tab-item-02.png" class="rounded" alt="">
+                    </div>
+                    <div class="col-7">
+                        <h4 class="text-danger">Orange Juice</h4>
+                        <p>Lorem ipsum dolor sit amet, consectetur koit adipiscing elit, sed do.</p>
+                    </div>
+                    <div class="col-2 bg-danger rounded d-flex align-items-center justify-content-center">
+                        <p class="text-light">140</p>
+                    </div>
+                </div>
+                <div class="row mt-2">
+                    <div class="col-3">
+                        <img src="../../../assets/images/tab-item-03.png" class="rounded" alt="">
+                    </div>
+                    <div class="col-7">
+                        <h4 class="text-danger">Fruit Salad</h4>
+                        <p>Lorem ipsum dolor sit amet, consectetur koit adipiscing elit, sed do.</p>
+                    </div>
+                    <div class="col-2 bg-danger rounded d-flex align-items-center justify-content-center">
+                        <p class="text-light">120</p>
+                    </div>
+                </div>
+            </div>
+            <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+                <div class="row mt-2">
+                    <div class="col-3">
+                        <img src="../../../assets/images/tab-item-04.png" class="rounded" alt="">
+                    </div>
+                    <div class="col-7">
+                        <h4 class="text-danger">Eggs Omelette</h4>
+                        <p>Lorem ipsum dolor sit amet, consectetur koit adipiscing elit, sed do.</p>
+                    </div>
+                    <div class="col-2 bg-danger rounded d-flex align-items-center justify-content-center">
+                        <p class="text-light">220</p>
+                    </div>
+                </div>
+                <div class="row mt-2">
+                    <div class="col-3">
+                        <img src="../../../assets/images/tab-item-05.png" class="rounded" alt="">
+                    </div>
+                    <div class="col-7">
+                        <h4 class="text-danger">Dollma Pire</h4>
+                        <p>Lorem ipsum dolor sit amet, consectetur koit adipiscing elit, sed do.</p>
+                    </div>
+                    <div class="col-2 bg-danger rounded d-flex align-items-center justify-content-center">
+                        <p class="text-light">180</p>
+                    </div>
+                </div>
+                <div class="row mt-2">
+                    <div class="col-3">
+                        <img src="../../../assets/images/tab-item-06.png" class="rounded" alt="">
+                    </div>
+                    <div class="col-7">
+                        <h4 class="text-danger">Omelette & Cheese</h4>
+                        <p>Lorem ipsum dolor sit amet, consectetur koit adipiscing elit, sed do.</p>
+                    </div>
+                    <div class="col-2 bg-danger rounded d-flex align-items-center justify-content-center">
+                        <p class="text-light">200</p>
+                    </div>
+                </div>
+            </div>
+            <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">
+                <div class="row mt-2">
+                    <div class="col-3">
+                        <img src="../../../assets/images/tab-item-01.png" class="rounded" alt="">
+                    </div>
+                    <div class="col-7">
+                        <h4 class="text-danger">Fresh Chicken Salad</h4>
+                        <p>Lorem ipsum dolor sit amet, consectetur koit adipiscing elit, sed do.</p>
+                    </div>
+                    <div class="col-2 bg-danger rounded d-flex align-items-center justify-content-center">
+                        <p class="text-light">120</p>
+                    </div>
+                </div>
+                <div class="row mt-2">
+                    <div class="col-3">
+                        <img src="../../../assets/images/tab-item-02.png" class="rounded" alt="">
+                    </div>
+                    <div class="col-7">
+                        <h4 class="text-danger">Orange Juice</h4>
+                        <p>Lorem ipsum dolor sit amet, consectetur koit adipiscing elit, sed do.</p>
+                    </div>
+                    <div class="col-2 bg-danger rounded d-flex align-items-center justify-content-center">
+                        <p class="text-light">120</p>
+                    </div>
+                </div>
+                <div class="row mt-2">
+                    <div class="col-3">
+                        <img src="../../../assets/images/tab-item-03.png" class="rounded" alt="">
+                    </div>
+                    <div class="col-7">
+                        <h4 class="text-danger">Fruit Salad</h4>
+                        <p>Lorem ipsum dolor sit amet, consectetur koit adipiscing elit, sed do.</p>
+                    </div>
+                    <div class="col-2 bg-danger rounded d-flex align-items-center justify-content-center">
+                        <p class="text-light">120</p>
+                    </div>
+                </div>  
+            </div>
+        </div>
+    </div>
+</div> -->
+
+
+<!-- about -->
+
+<div class="container mt-5 mb-5">
+    <div class="row featurette">
+        <div class="col-md-7">
+            <h5 class="text-danger">ABOUT US</h5>
+          <h2 class="featurette-heading">We Leave A  <span class="text-muted">Delicious Memory For You</span></h2>
+          <p class="mt-5">Klassy Cafe is one of the best restaurant HTML templates with Bootstrap v4.5.2 CSS framework. You can download and feel free to use this website template layout for your restaurant business. You are allowed to use this template for commercial purposes. <br><br>
+
+            You are NOT allowed to redistribute the template ZIP file on any template donwnload website. Please contact us for more information.</p>
+            <div class="row">
+                <div class="col">
+                    <img src="../../../assets/images/about-thumb-01.jpeg" class="rounded" alt="">
+                </div>
+                <div class="col">
+                    <img src="../../../assets/images/about-thumb-02.jpeg" class="rounded" alt="">
+                </div>
+                <div class="col">
+                    <img src="../../../assets/images/about-thumb-03.jpeg" class="rounded" alt="">
+                </div>
+
+            </div>
+
+        </div>
+        <div class="col-md-5">
+          <!-- <svg class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500" height="500" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 500x500" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#eee"/><text x="50%" y="50%" fill="#aaa" dy=".3em">500x500</text></svg> -->
+          <img src="../../../assets/images/about-video-bg.jpeg" class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto rounded" alt="">
+    
+        </div>
+      </div>
+    
+</div>
+
+<app-footer></app-footer>
